@@ -60,7 +60,7 @@ docker images
 ```
 ### Run on raspberry pi:
 ```
-docker pull --platform linux/arm/v8 fritzthecat9/dockertest_api:latest
+docker pull fritzthecat9/dockertest_api:latest
 docker run -d -p 5000:5000 -p 5001:5001 -e ASPNETCORE_URLS="https://+:5001;http://+:5000" -e ASPNETCORE_HTTP_PORTS=5000 -e ASPNETCORE_HTTPS_PORT=5001 -e ASPNETCORE_ENVIRONMENT=Development -e ASPNETCORE_Kestrel__Certificates__Default__Password=password -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx -v "$HOME/.aspnet/https:/https/" fritzthecat9/dockertest_api:latest
 ```
 ### Remove container
