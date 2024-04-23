@@ -14,6 +14,7 @@ docker build -t dockertest_api --platform linux/arm64/v8 .
 docker build --no-cache -t dockertest_api --platform=linux/arm/v7 .
 docker build --no-cache -t dockertest_api --platform=linux/arm64/v8 .
 docker build --no-cache -t dockertest_api --platform=linux/arm64 .
+-t - name and tag of the image
 ```
 ### Rebuild (--no-cache):
 ```
@@ -28,6 +29,7 @@ docker run -d -p 5000:5000 -e ASPNETCORE_HTTP_PORTS=5000 -e ASPNETCORE_ENVIRONME
 dotnet dev-certs https --clean
 dotnet dev-certs https -ep $HOME\.aspnet\https\aspnetapp.pfx -p password
 dotnet dev-certs https --trust
+-ep - path to existing certificate file (.pfx) that you want to use for HTTPS development (existing PFX file)
 ```
 ##### IMPORTANT - COPY CERTIFICATE TO RASPBERRY PI!!! (use scp) -> to: $HOME/.aspnet/https
 ### Working https:
