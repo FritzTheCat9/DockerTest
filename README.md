@@ -31,7 +31,10 @@ dotnet dev-certs https -ep $HOME\.aspnet\https\aspnetapp.pfx -p password
 dotnet dev-certs https --trust
 -ep - path to existing certificate file (.pfx) that you want to use for HTTPS development (existing PFX file)
 ```
-##### IMPORTANT - COPY CERTIFICATE TO RASPBERRY PI!!! (use scp) -> to: $HOME/.aspnet/https
+##### IMPORTANT - COPY CERTIFICATE TO RASPBERRY PI!!! (use scp) -> to: $HOME/.aspnet/https (change <raspberrypi_ip> to correct Raspberry Pi ip)
+```
+scp C:\Users\bartl\.aspnet\https\aspnetapp.pfx malinka@<raspberrypi_ip>:/home/malinka/https/
+```
 ### Working https:
 ```
 docker run -d -p 5000:5000 -p 5001:5001 -e ASPNETCORE_URLS="https://+:5001;http://+:5000" -e ASPNETCORE_HTTP_PORTS=5000 -e ASPNETCORE_HTTPS_PORT=5001 -e ASPNETCORE_ENVIRONMENT=Development -e ASPNETCORE_Kestrel__Certificates__Default__Password=password -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx -v "$HOME/.aspnet/https:/https/" dockertest_api
